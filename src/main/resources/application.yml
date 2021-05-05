@@ -1,7 +1,7 @@
 app:
-  relying-party-id: b15865bc9f5c.ngrok.io
+  relying-party-id: web-au.herokuapp.com
   relying-party-name: Example Application
-  relying-party-origins: https://b15865bc9f5c.ngrok.io
+  relying-party-origins: https://web-au.herokuapp.com
   relying-party-Icon: https://webauthn-omed.hplar.ch/assets/logo.png
 
 spring:
