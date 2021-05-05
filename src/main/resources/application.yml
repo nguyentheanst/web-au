@@ -1,0 +1,22 @@
+app:
+  relying-party-id: b15865bc9f5c.ngrok.io
+  relying-party-name: Example Application
+  relying-party-origins: https://b15865bc9f5c.ngrok.io
+  relying-party-Icon: https://webauthn-omed.hplar.ch/assets/logo.png
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/webauthn
+    username: postgres
+    password: 123456
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+    default-property-inclusion: non-absent
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
