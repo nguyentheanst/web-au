@@ -48,7 +48,6 @@ public class CustomerController {
                             )
                             .authenticatorSelection(AuthenticatorSelectionCriteria.builder()
                                     .authenticatorAttachment(AuthenticatorAttachment.PLATFORM)
-                                    .userVerification(UserVerificationRequirement.REQUIRED)
                                     .build()
                             )
                             .timeout(18000)
