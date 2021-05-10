@@ -17,7 +17,6 @@ public class DemoApplication {
         RelyingPartyIdentity identity = RelyingPartyIdentity.builder()
                 .id(config.getRelyingPartyId())
                 .name(config.getRelyingPartyName())
-                .icon(Optional.ofNullable(config.getRelyingPartyIcon()))
                 .build();
 
         return RelyingParty.builder()
