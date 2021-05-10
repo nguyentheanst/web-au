@@ -1,7 +1,7 @@
 app:
-  relying-party-id: web-au.herokuapp.com
+  relying-party-id: web-auth.herokuapp.com
   relying-party-name: Example Application
-  relying-party-origins: https://web-au.herokuapp.com
+  relying-party-origins: https://web-auth.herokuapp.com
   relying-party-Icon: https://webauthn-omed.hplar.ch/assets/logo.png
 
 spring:
