@@ -46,8 +46,8 @@ public class CustomerController {
                                     .build()
                             )
                             .authenticatorSelection(AuthenticatorSelectionCriteria.builder()
+                                    .authenticatorAttachment(AuthenticatorAttachment.PLATFORM)
                                     .requireResidentKey(false)
-                                    .userVerification(UserVerificationRequirement.DISCOURAGED)
                                     .build()
                             )
                             .build()
@@ -103,8 +103,7 @@ public class CustomerController {
         AssertionRequest assertionRequest = this.relyingParty.startAssertion(
                 StartAssertionOptions.builder()
                         .username(username)
-                        .userVerification(UserVerificationRequirement.REQUIRED)
-                        .timeout(180000)
+                        .timeout(60000)
                         .build()
         );
 
@@ -128,9 +127,6 @@ public class CustomerController {
             );
 
             if (result.isSuccess()) {
-                System.out.println(result.getSignatureCount());
-                System.out.println(result.getUsername());
-                System.out.println(result.getWarnings());
                 return ResponseEntity.ok(result.isSuccess());
             }
         } catch (AssertionFailedException e) {
