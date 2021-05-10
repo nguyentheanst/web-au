@@ -11,7 +11,6 @@ import com.yubico.webauthn.*;
 import com.yubico.webauthn.data.*;
 import com.yubico.webauthn.exception.AssertionFailedException;
 import com.yubico.webauthn.exception.RegistrationFailedException;
-import com.yubico.webauthn.extension.appid.AppId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -47,10 +46,10 @@ public class CustomerController {
                                     .build()
                             )
                             .authenticatorSelection(AuthenticatorSelectionCriteria.builder()
-                                    .authenticatorAttachment(AuthenticatorAttachment.PLATFORM)
+                                    .requireResidentKey(false)
+                                    .userVerification(UserVerificationRequirement.DISCOURAGED)
                                     .build()
                             )
-                            .timeout(18000)
                             .build()
                     );
             byte[] registrationId = new byte[16];
