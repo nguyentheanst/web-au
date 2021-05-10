@@ -4,6 +4,7 @@ import com.example.demo.entity.Customer;
 import com.example.demo.repository.CustomerRepo;
 import com.yubico.webauthn.CredentialRepository;
 import com.yubico.webauthn.RegisteredCredential;
+import com.yubico.webauthn.data.AuthenticatorTransport;
 import com.yubico.webauthn.data.ByteArray;
 import com.yubico.webauthn.data.PublicKeyCredentialDescriptor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,10 @@ public class CustomCredentialRepository implements CredentialRepository {
         Customer customer = customerRepo.findByUsername(username);
         Set<PublicKeyCredentialDescriptor> result = new HashSet<>();
         if (customer != null) {
+            Set<AuthenticatorTransport> transports = new HashSet<>();
+            transports.add(AuthenticatorTransport.INTERNAL);
             PublicKeyCredentialDescriptor descriptor = PublicKeyCredentialDescriptor.builder()
-                    .id(new ByteArray(customer.getCredentialId())).build();
+                    .id(new ByteArray(customer.getCredentialId())).transports(transports).build();
             result.add(descriptor);
         }
 
